@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url("https://flomaster.top/uploads/posts/2022-06/1656366608_3-flomaster-club-p-risunok-bank-krasivo-3.jpg");
+            background-size: contain;
+            background-position: center;
+            width: 100%;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background: #1A75BB;
+            color: #ffffff;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="{% url 'login' %}" onsubmit="return validateForm()">
+        {% csrf_token %}
+        <h1>Вход</h1>
+
+        <label for="email">Email:</label>
+        <input type="text" name="email" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" title="Введите корректный адрес электронной почты." required>
+
+        <label for="username">Имя пользователя:</label>
+        <input type="text" name="username" required>
+
+        <label for="password">Пароль:</label>
+        <input type="password" name="password" required>
+
+        <label for="otp">Otp:</label>
+        <input type="text" name="otp" pattern="\d{6}" title="Введите OTP код." required>
+
+        <button type="submit">Войти</button>
+         <a href="{% url 'registration' %}">Регистрация</a>
+
+    </form>
+    {% if messages %}
+    {% for message in messages %}
+        <script>
+            alert("{{ message }}");
+        </script>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

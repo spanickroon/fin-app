@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-05 20:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: apps/authentication/apps.py:8
+msgid "Authentication"
+msgstr "Аутентификация"
+
+#: apps/authentication/models.py:16
+msgid "User"
+msgstr "Пользователь"
+
+#: apps/authentication/models.py:18
+msgid "Role"
+msgstr "Роль"
+
+#: apps/authentication/models.py:25 apps/credits/models.py:11
+#: apps/documents/models.py:9 apps/logs/models.py:9 apps/payments/models.py:12
+#: apps/payments/models.py:47
+msgid "User Profile"
+msgstr "Профиль пользователя"
+
+#: apps/authentication/models.py:26
+msgid "User Profiles"
+msgstr "Профили пользователей"
+
+#: apps/categories/apps.py:8 apps/categories/models.py:22
+msgid "Categories"
+msgstr "Категории"
+
+#: apps/categories/models.py:8
+msgid "Parent Category"
+msgstr "Родительская категория"
+
+#: apps/categories/models.py:14 apps/payments/models.py:14
+#: apps/payments/models.py:29
+msgid "Name"
+msgstr "Название"
+
+#: apps/categories/models.py:21 apps/payments/models.py:27
+#: apps/payments/models.py:61
+msgid "Category"
+msgstr "Категория"
+
+#: apps/credits/apps.py:8 apps/credits/models.py:39
+msgid "Credits"
+msgstr "Кредиты"
+
+#: apps/credits/models.py:14 apps/documents/models.py:21
+msgid "Document"
+msgstr "Документ"
+
+#: apps/credits/models.py:17
+msgid "Request amount"
+msgstr "Сумма запроса"
+
+#: apps/credits/models.py:27
+msgid "Approved amount"
+msgstr "Утвержденная сумма"
+
+#: apps/credits/models.py:38
+msgid "Credit"
+msgstr "Кредит"
+
+#: apps/documents/apps.py:8 apps/documents/models.py:22
+msgid "Documents"
+msgstr "Документы"
+
+#: apps/documents/models.py:11
+msgid "Document photo"
+msgstr "Фото документа"
+
+#: apps/documents/models.py:12
+msgid "Birth Date"
+msgstr "Дата рождения"
+
+#: apps/documents/models.py:13
+msgid "Country"
+msgstr "Страна"
+
+#: apps/documents/models.py:14
+msgid "Id number"
+msgstr "Айди номер"
+
+#: apps/logs/models.py:11
+msgid "Log time"
+msgstr "Время лога"
+
+#: apps/logs/models.py:12
+msgid "Action"
+msgstr "Действие"
+
+msgid "Logs"
+msgstr "Логирование"
+
+#: apps/logs/models.py:19
+msgid "System log"
+msgstr "Системный лог"
+
+#: apps/logs/models.py:20
+msgid "System logs"
+msgstr "Системные логи"
+
+#: apps/payments/apps.py:8 apps/payments/models.py:42
+msgid "Payments"
+msgstr "Платежи"
+
+#: apps/payments/models.py:21 apps/payments/models.py:54
+msgid "Payment template"
+msgstr "Платежный шаблон"
+
+#: apps/payments/models.py:22
+msgid "Payment templates"
+msgstr "Платежные шаблоны"
+
+#: apps/payments/models.py:30
+msgid "Code"
+msgstr "Код"
+
+#: apps/payments/models.py:32
+msgid "Rate"
+msgstr "Ставка"
+
+#: apps/payments/models.py:34
+msgid "Prev Amount"
+msgstr "Предыдущая сумма"
+
+#: apps/payments/models.py:41 apps/payments/models.py:50
+msgid "Payment"
+msgstr "Платеж"
+
+#: apps/payments/models.py:63 apps/payments/models.py:68
+msgid "Payment time"
+msgstr "Время платежа"
+
+#: apps/payments/models.py:65
+msgid "Prev amount"
+msgstr "Предыдущая сумма"
+
+#: apps/payments/models.py:71
+msgid "Price amount"
+msgstr "Сумма цены"
+
+#: apps/payments/models.py:79
+msgid "Payment history"
+msgstr "История платежей"
+
+#: apps/payments/models.py:80
+msgid "Payment histories"
+msgstr "Истории платежей"

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="subcategoryTitle">Платежи</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url("https://flomaster.top/uploads/posts/2022-06/1656366608_3-flomaster-club-p-risunok-bank-krasivo-3.jpg");
+            background-size: contain;
+            background-position: center;
+            width: 100%;
+        }
+
+        #subcategoryContainer {
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            border: 1px solid #ccc;
+        }
+
+        #subcategoryContainer div {
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.5em;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: black;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+<a href="/base" class="back-link">Назад</a>
+<div id="subcategoryContainer">
+    {% if payments %}
+        <h1 id="subcategoryHeader">Платежи</h1>
+        {% for payment in payments %}
+            <div>
+                <a href="/payments/{{ payment.category.id }}/{{  payment.id }}">{{ payment.name }}</a>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+</body>
+</html>
+

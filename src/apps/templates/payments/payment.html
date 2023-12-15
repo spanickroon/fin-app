@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url("https://flomaster.top/uploads/posts/2022-06/1656366608_3-flomaster-club-p-risunok-bank-krasivo-3.jpg");
+            background-size: contain;
+            background-position: center;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.5em;
+            text-align: left;
+        }
+
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .input-container {
+            display: flex;
+            margin-bottom: 16px;
+            position: center;
+        }
+
+        .input-container label,
+        .input-container input {
+            width: 48%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        button {
+            background: #1A75BB;
+            color: white;
+            padding: 10px 80px;
+            border: none;
+            position: center;
+            cursor: pointer;
+            margin-top: 16px;
+            font-size: 16px;
+        }
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: black;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+<a href="/base" class="back-link">Назад</a>
+{% if qr_code %}
+    <img src="data:image/png;base64,{{ qr_code }}">
+{% elif payment %}
+    <div class="container">
+        <h1>{{ payment.name }}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {% if payment.is_prev_amount %}
+                <div class="input-container">
+                    <label for="prev_amount">Пред. значение:</label>
+                    <input type="text" name="prev_amount" required pattern="[1-9]\d*" title="Введите только цифры больше нуля">
+                </div>
+            {% endif %}
+
+            <div class="input-container">
+                <label for="current_amount">Текущее значение:</label>
+                <input type="text" name="current_amount" required pattern="[1-9]\d*" title="Введите только цифры больше нуля">
+            </div>
+
+            <button type="submit">Получить qr code</button>
+        </form>
+    </div>
+{% endif %}
+</body>
+</html>

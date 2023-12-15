@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Категории</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url("https://flomaster.top/uploads/posts/2022-06/1656366608_3-flomaster-club-p-risunok-bank-krasivo-3.jpg");
+            background-size: contain;
+            background-position: center;
+            width: 100%;
+        }
+
+        header {
+            background-color: #ffffff;
+            color: white;
+            padding: 5px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: black;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 25px;
+        }
+
+        .categories-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            width: 70%;
+            padding: 20px;
+        }
+
+        .category-block {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            flex: 1 0 calc(25% - 25px);
+            margin: 0 10px 20px;
+            cursor: grab;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+            width: 250px;
+            height: 200px;
+        }
+
+        .category {
+            margin-bottom: 10px;
+        }
+
+        .category-name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .subcategory-list {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .subcategory-item {
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: grab;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            float: left;
+            padding: 0 0.5em 0 0;
+        }
+
+        .subcategory-link {
+            text-decoration: none;
+            color: #007bff;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+<a href="/base" class="back-link">Назад</a>
+
+<div class="categories-container">
+    {% for category in categories %}
+        <div class="category-block">
+            <div class="category">
+                <div class="category-name">{{ category.name }}</div>
+            </div>
+            <ul class="subcategory-list">
+                {% for subcategory in category.children_category %}
+                    <li class="subcategory-item">
+                        <a href="/payments/{{ subcategory.id }}" class="subcategory-link">{{ subcategory.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>

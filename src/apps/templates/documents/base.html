@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url("https://flomaster.top/uploads/posts/2022-06/1656366608_3-flomaster-club-p-risunok-bank-krasivo-3.jpg");
+            background-size: contain;
+            background-position: center;
+            width: 100%;
+        }
+
+        form {
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 20px;
+            display: block;
+            font-weight: bolder;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: black;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 25px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            color: #fff;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            background: #1A75BB;
+        }
+    </style>
+</head>
+<body>
+<a href="/base" class="back-link">Назад</a>
+<form enctype="multipart/form-data" method="POST" action="{% url 'document_verification' %}">
+    {% csrf_token %}
+    <label for="document_photo">Загрузите фото паспорта:</label>
+    <input type="file" id="document_photo" name="document_photo" accept="image/png, image/jpeg, image/jpg">
+    <br>
+    <input type="submit" value="Загрузить">
+</form>
+{% if not error and request.FILES.document_photo %}
+    <script>
+        alert("Фото успешно загружено")
+    </script>
+{% endif %}
+{% if error %}
+    <script>
+        alert("{{ error }}");
+    </script>
+{% endif %}
+</body>
+</html>

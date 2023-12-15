@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image: url("https://flomaster.top/uploads/posts/2022-06/1656366608_3-flomaster-club-p-risunok-bank-krasivo-3.jpg");
+            background-size: contain;
+            background-position: center;
+            width: 100%;
+        }
+
+        #content {
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .payment-info {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: black;
+            text-decoration: none;
+            font-weight: bolder;
+            font-size: 25px;
+        }
+
+        label {
+            text-align: center;
+            font-weight: bolder;
+            font-size: 20px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        .payment-history-container {
+            margin-top: 20px; /* Отступ сверху */
+            margin-bottom: 20px; /* Отступ снизу */
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/base" class="back-link">Назад</a>
+    <div id="content">
+        <label for="payment_history">История платежей</label>
+        <div class="payment-history-container">
+            {% if history %}
+                {% for payment in history %}
+                    <div class="payment-info"><strong>{{ payment.payment.name }}</strong>: {{ payment.category }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>

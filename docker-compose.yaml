@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  app:
+    restart: always
+    image: "fin_info"
+    container_name: "fin_info_app"
+    build: ./src
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - postgres
+    ports:
+      - "8000:8000"
+    expose:
+      - 8000
+    env_file:
+        - ./src/variables/dev.env
+    volumes:
+      - ./src/:/src/
+
+  postgres:
+    restart: always
+    image: postgres:15.0-alpine
+    container_name: "fin_info_postgres"
+    expose:
+      - 5432
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./src/variables/dev.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  nginx:
+    image: nginx:1.23-alpine
+    container_name: tofi_nginx
+    restart: always
+    depends_on:
+      - app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+
+volumes:
+  postgres_data:

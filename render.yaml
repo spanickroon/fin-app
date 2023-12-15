@@ -1,0 +1,21 @@
+databases:
+  - name: tofi-postgres
+    databaseName: tofi_zkue
+    user: tofi_zkue_user
+
+services:
+  - type: web
+    name: tofi-app
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "./deploy.sh"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: tofi-postgres
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4
+  
